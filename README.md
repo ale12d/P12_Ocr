@@ -38,6 +38,8 @@ Create your database: ```python EpicEvents\manage.py makemigrations```
 
 Run the django server : ```python EpicEvents\manage.py runserver```
 
+To test all end points(optional) : ```python EpicEvents\manage.py test```
+
 ## Setup Windows
 To run this project, write ```python3``` in the cmd to install python3 in microsoft store
 
@@ -55,7 +57,9 @@ Create your database: ```python EpicEvents\manage.py makemigrations```
                       
 Run the django server : ```python EpicEvents\manage.py runserver```
 
-##End points
+To test end points(optional) : ```python EpicEvents\manage.py test```
+
+## End points
 
 Create User account: http://127.0.0.1:8000/signup
 
