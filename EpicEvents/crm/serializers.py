@@ -4,7 +4,7 @@ from crm.models import Client, Contract, Event
 class ClientsSerializer(ModelSerializer):
     class Meta:
         model = Client
-        fields = ['id','first_name','last_name','email','mobile','company_name']
+        fields = ['id','first_name','last_name', 'email', 'company_name','sales_contact']
 
 class ClientsDetailSerializer(ModelSerializer):
     class Meta:
@@ -19,16 +19,16 @@ class ContractsSerializer(ModelSerializer):
 
 class ContractsDetailSerializer(ModelSerializer):
     class Meta:
-        model = Client
+        model = Contract
         fields = ['id','sales_contact','client','status','amount','payement_due']
 
 
 class EventsSerializer(ModelSerializer):
     class Meta:
         model = Event
-        fields = ['id','contract','event_date','support_contact','status']
+        fields = ['id','client','event_date','support_contact','event_status']
 
 class EventsDetailSerializer(ModelSerializer):
     class Meta:
-        model = Client
-        fields = ['id', 'contract', 'event_date', 'support_contact', 'status', 'attendees', 'notes']
+        model = Event
+        fields = ['id','client', 'event_date', 'support_contact', 'event_status', 'attendees', 'notes']

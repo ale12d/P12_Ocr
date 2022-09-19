@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from crm.views import ClientAPIView, ContractAPIView, EventAPIView
+from rest_framework_simplejwt.views import TokenObtainPairView
+from auth_epic_events.views import SignUpAPIView
 
 router = routers.SimpleRouter()
 router.register('clients', ClientAPIView, basename='clients')
@@ -25,6 +27,7 @@ router.register('events', EventAPIView, basename='events')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
+    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('signup', SignUpAPIView.as_view()),
     path('api/', include(router.urls))
 ]

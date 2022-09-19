@@ -12,6 +12,7 @@ class Client(models.Model):
     date_update = models.DateTimeField(auto_now_add=True)
     sales_contact = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
 
+
 class Contract(models.Model):
     sales_contact = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
@@ -20,7 +21,6 @@ class Contract(models.Model):
     status = models.BooleanField(default=False)
     amount = models.FloatField()
     payement_due = models.DateField(null=True)
-
 
 
 class Event(models.Model):
