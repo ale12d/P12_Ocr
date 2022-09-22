@@ -13,6 +13,9 @@ class Seller(permissions.BasePermission):
             return False
 
     def has_object_permission(self, request, view, obj):
+        if request.user.is_superuser== True:
+            return True
+
         method = request.method
         if request.user.role == SELLER and method in ('PATCH', 'DELETE', 'GET'):
             try:
@@ -37,6 +40,8 @@ class Support(permissions.BasePermission):
             return False
 
     def has_object_permission(self, request, view, obj):
+        if request.user.is_superuser== True:
+            return True
         method = request.method
         if request.user.role == SUPPORT and method in ('PATCH', 'DELETE', 'GET'):
             try:
